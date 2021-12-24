@@ -8,7 +8,6 @@ import Stream from 'flarum/common/utils/Stream';
 import Button from 'flarum/common/components/Button';
 
 app.initializers.add('serakoi/flarumstaffbadge', () => {
-    console.log(this);
     User.prototype.staffBadge = Model.attribute('staffBadge');
 
     extend(EditUserModal.prototype, 'oninit', function () {
@@ -28,4 +27,16 @@ app.initializers.add('serakoi/flarumstaffbadge', () => {
     extend(EditUserModal.prototype, 'data', function (data) {
         data.staffBadge = this.status();
     });
+    
+    if(this.attrs.user.staffBadge()){
+        if(this.attrs.user.staffBadge().toLowerCase() != "true") return;
+        const avatarparent_element = document.getElementsByClassName("UserCard-avatar")[0];
+        if(!avatarparent_element) return;
+
+        avatarparent_element.style.position = "relative";
+        const sb_el = document.createElement("div");
+        sb_el.className = "ext_staffbadge";
+        sb_el.innerText = "Staff";
+        avatarparent_element.appendChild(sb_el);
+    }
 });

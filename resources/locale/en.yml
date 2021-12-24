@@ -6,4 +6,4 @@ serakoi-flarumstaffbadge:
   forum:
     edit_user:
       heading: Staff Badge Enabled
-      placeholder: false
+      placeholder: Set input to 'true' to activate the badge
