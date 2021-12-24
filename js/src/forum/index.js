@@ -28,7 +28,7 @@ app.initializers.add('serakoi/flarumstaffbadge', () => {
             //     avatarparent_element.append(sb_el);
             // }
             //? Mikai, we moeten alleen nog zorgen dat de avatar class iets anders word. (ExTeNdEn)
-            if (avatarparent_element) {
+            // if (avatarparent_element) {
                 extend(HeaderPrimary.prototype, 'items', function(items) {
                     items.add('wdasd', <a href="https://google.com">Gooaw</a>);
                 });
@@ -37,7 +37,7 @@ app.initializers.add('serakoi/flarumstaffbadge', () => {
                     console.log('Hi, this works lol')
                     </script>);
                 });
-            }
+            // }
         }
     });
 
