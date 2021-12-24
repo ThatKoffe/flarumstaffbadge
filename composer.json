@@ -33,10 +33,10 @@
     },
     "extra": {
       "flarum-extension": {
-        "title": "Profile Titles",
+        "title": "Staff Badge",
         "category": "feature",
         "icon": {
-          "name": "fas fa-heading",
+          "name": "fas fa-address-card",
           "backgroundColor": "#0045ff",
           "color": "#fff"
         }
