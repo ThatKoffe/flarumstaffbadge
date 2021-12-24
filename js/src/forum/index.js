@@ -26,7 +26,7 @@ app.initializers.add('serakoi/flarumstaffbadge', () => {
             //     sb_el.innerText = "Staff";
             //     avatarparent_element.append(sb_el);
             // }
-            extend(UserCard.prototype, 'oncreate', function(vnode) {
+            extend(UserCard.prototype, 'oncreate', function(_out, vnode) {
                 const userCardDom = vnode.dom;
                 const avatarDom = userCardDom.querySelector('.UserCard-Avatar');
                 avatarDom.classList.add("ext_staffbadge");
