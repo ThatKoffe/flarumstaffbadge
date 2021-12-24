@@ -17,13 +17,13 @@ app.initializers.add('serakoi/flarumstaffbadge', () => {
         if(user.staffBadge) {
             if(user.staffBadge.toLowerCase() != "true") return;
             const avatarparent_element = document.getElementsByClassName("UserCard-avatar")[0];
-            if(!avatarparent_element) return;
-    
-            avatarparent_element.style.position = "relative";
-            const sb_el = document.createElement("div");
-            sb_el.className = "ext_staffbadge";
-            sb_el.innerText = "Staff";
-            avatarparent_element.appendChild(sb_el);
+            if(avatarparent_element){
+                avatarparent_element.style.position = "relative";
+                const sb_el = document.createElement("div");
+                sb_el.className = "ext_staffbadge";
+                sb_el.innerText = "Staff";
+                avatarparent_element.append(sb_el);
+            }
         }
     });
 
