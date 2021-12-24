@@ -29,7 +29,7 @@ return [
         ->listen(Saving::class, SaveStaffBadgeToDatabase::class),
     
     (new Extend\ApiSerializer(UserSerializer::class))
-        ->add('staffBadge', function ($user) {
+        ->attribute('staffBadge', function ($user) {
             return $user->staffBadge;
         }),
 
