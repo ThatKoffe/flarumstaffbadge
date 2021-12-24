@@ -26,4 +26,3 @@ app.initializers.add('serakoi/flarumstaffbadge', () => {
         data.staffBadge = this.status();
     });
 });
-

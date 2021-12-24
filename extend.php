@@ -29,5 +29,5 @@ return [
         ->listen(Saving::class, SaveStaffBadgeToDatabase::class),
     
     (new Extend\Settings)
-        ->serializeToForum('staffBadge', 'serakoi-flarumstaffbadge.staffBadge'),
+        ->serializeToForum('staffBadgeTitle', 'serakoi-flarumstaffbadge.staffBadge'),
 ];
