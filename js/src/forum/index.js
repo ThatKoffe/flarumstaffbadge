@@ -19,7 +19,6 @@ app.initializers.add('serakoi/flarumstaffbadge', () => {
         const user = this.user.data.attributes;
         if(user.staffBadge) {
             if(user.staffBadge.toLowerCase() != "true") return;
-            const avatarparent_element = document.getElementsByClassName("UserCard-avatar")[0];
             // if(avatarparent_element){
             //     avatarparent_element.style.position = "relative";
             //     const sb_el = document.createElement("div");
@@ -27,17 +26,11 @@ app.initializers.add('serakoi/flarumstaffbadge', () => {
             //     sb_el.innerText = "Staff";
             //     avatarparent_element.append(sb_el);
             // }
-            //? Mikai, we moeten alleen nog zorgen dat de avatar class iets anders word. (ExTeNdEn)
-            // if (avatarparent_element) {
-                extend(HeaderPrimary.prototype, 'items', function(items) {
-                    items.add('wdasd', <a href="https://google.com">Gooaw</a>);
-                });
-                extend(HeaderPrimary.prototype, 'items', function(items) {
-                    items.add('staffbadgescr', <script id="extsrc_staffbadge">
-                    console.log('Hi, this works lol')
-                    </script>);
-                });
-            // }
+            extend(UserCard.prototype, 'oncreate', function(vnode) {
+                const userCardDom = vnode.dom;
+                const avatarDom = userCardDom.querySelector('.UserCard-Avatar');
+                avatarDom.classList.add("ext_staffbadge");
+            });
         }
     });
 
