@@ -11,9 +11,12 @@ import UserPage from 'flarum/forum/components/UserPage'
 app.initializers.add('serakoi/flarumstaffbadge', () => {
     User.prototype.staffBadge = Model.attribute('staffBadge');
 
-    extend(UserPage.prototype, 'oninit', function () {
-        if(this.attrs.user.staffBadge()){
-            if(this.attrs.user.staffBadge().toLowerCase() != "true") return;
+    extend(UserPage.prototype, 'oninit', function (bodyClass, page_user) {
+        console.log(page_user);
+        console.log(bodyClass);
+        const user = page_user;
+        if(user.staffBadge()){
+            if(user.staffBadge().toLowerCase() != "true") return;
             const avatarparent_element = document.getElementsByClassName("UserCard-avatar")[0];
             if(!avatarparent_element) return;
     
