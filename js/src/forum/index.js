@@ -27,9 +27,13 @@ app.initializers.add('serakoi/flarumstaffbadge', () => {
             //     avatarparent_element.append(sb_el);
             // }
             extend(UserCard.prototype, 'oncreate', function(_out, vnode) {
+                let staffBadgeText = app.forum.attribute('staffBadgeTitle');
+                if(!staffBadgeText) staffBadgeText = "Staff";
+                if(staffBadgeText == "") staffBadgeText = "Staff";
                 const userCardDom = vnode.dom;
                 const avatarDom = userCardDom.querySelector('.UserCard-avatar');
                 avatarDom.classList.add("ext_staffbadge");
+                avatarDom.style.content = staffBadgeText;
             });
         }
     });
