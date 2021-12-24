@@ -22,10 +22,10 @@ class SaveStaffBadgeToDatabase {
         $user = $event->user;
         $data = $event->data;
         $actor = $event->actor;
+        $actor->assertAdmin();
         $attributes = Arr::get($data, 'attributes', []);
 
         if (isset($attributes['staffBadge'])) {
-            $actor->assertCan('editNickname', $user);
 
             $staffbadge = $attributes['staffBadge'];
 

@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of serakoi/flarumdiscordtheme.
+ * This file is part of serakoi/flarumstaffbadge.
  *
  * Copyright (c) 2021 Serakoi.
  *
