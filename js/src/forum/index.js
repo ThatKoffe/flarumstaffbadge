@@ -11,7 +11,7 @@ app.initializers.add('serakoi/flarumstaffbadge', () => {
     User.prototype.staffBadge = Model.attribute('staffBadge');
 
     extend(EditUserModal.prototype, 'oninit', function () {
-        this.status = Stream(this.attrs.user.staffBadge());
+        this.status = Stream(user.staffBadge());
     });
 
     extend(EditUserModal.prototype, 'fields', function (items) {
