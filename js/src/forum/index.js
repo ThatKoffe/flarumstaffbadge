@@ -1,17 +1,17 @@
 import { extend } from 'flarum/extend';
 import app from 'flarum/app';
 import EditUserModal from 'flarum/common/components/EditUserModal';
-import Model from 'flarum/common/Model';
+import Model from 'flarum/Model';
 import User from 'flarum/common/models/User';
 import extractText from 'flarum/common/utils/extractText';
 import Stream from 'flarum/common/utils/Stream';
 import Button from 'flarum/common/components/Button';
 
 app.initializers.add('serakoi/flarumstaffbadge', () => {
+    console.log(this);
     User.prototype.staffBadge = Model.attribute('staffBadge');
 
     extend(EditUserModal.prototype, 'oninit', function () {
-        console.log(this);
         this.status = Stream(this.attrs.user.staffBadge() || '');
     });
 
