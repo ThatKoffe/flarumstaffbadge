@@ -29,5 +29,7 @@ return [
         ->listen(Saving::class, SaveStaffBadgeToDatabase::class),
     
     (new Extend\Settings)
-        ->serializeToForum('staffBadgeTitle', 'serakoi-flarumstaffbadge.staffBadge'),
+        ->default('staffBadge', 'false')
+        ->serializeToForum('staffBadgeTitle', 'serakoi-flarumstaffbadge.staffBadge')
+        ->serializeToForum('staffBadgeDriver', 'staff_badge_driver', null, 'staffBadge')
 ];
