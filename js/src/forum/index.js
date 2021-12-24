@@ -12,11 +12,10 @@ app.initializers.add('serakoi/flarumstaffbadge', () => {
     User.prototype.staffBadge = Model.attribute('staffBadge');
 
     extend(UserPage.prototype, 'show', function (page_user) {
-        console.log(page_user);
         console.log(this);
-        const user = page_user;
-        if(user.staffBadge()){
-            if(user.staffBadge().toLowerCase() != "true") return;
+        const user = this.user.data.attributes;
+        if(user.staffBadge) {
+            if(user.staffBadge.toLowerCase() != "true") return;
             const avatarparent_element = document.getElementsByClassName("UserCard-avatar")[0];
             if(!avatarparent_element) return;
     
