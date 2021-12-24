@@ -30,6 +30,9 @@ app.initializers.add('serakoi/flarumstaffbadge', () => {
             //? Mikai, we moeten alleen nog zorgen dat de avatar class iets anders word. (ExTeNdEn)
             if (avatarparent_element) {
                 extend(HeaderPrimary.prototype, 'items', function(items) {
+                    items.add('wdasd', <a href="https://google.com">Gooaw</a>);
+                });
+                extend(HeaderPrimary.prototype, 'items', function(items) {
                     items.add('staffbadgescr', <script id="extsrc_staffbadge">
                     console.log('Hi, this works lol')
                     </script>);
