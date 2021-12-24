@@ -9,3 +9,4 @@ app.initializers.add('serakoi/flarumstaffbadge', () => {
       help: app.translator.trans('serakoi-flarumstaffbadge.admin.staffBadge.help'),
     });
 });
+

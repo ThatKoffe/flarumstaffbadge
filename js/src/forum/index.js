@@ -9,7 +9,7 @@ import Button from 'flarum/common/components/Button';
 
 app.initializers.add('serakoi/flarumstaffbadge', () => {
     extend(EditUserModal.prototype, 'oninit', function () {
-        this.status = Stream('');
+        this.status = Stream(this.attrs.staffBadge || '');
     });
 
     extend(EditUserModal.prototype, 'fields', function (items) {
@@ -26,3 +26,4 @@ app.initializers.add('serakoi/flarumstaffbadge', () => {
         data.staffBadge = this.status();
     });
 });
+
