@@ -14,7 +14,7 @@ namespace Serakoi\FlarumStaffBadge;
 use Flarum\Extend;
 use Flarum\Api\Serializer\ForumSerializer;
 use Flarum\Api\Event\Serializing;
-
+use Flarum\User\Event\Saving;
 
 return [
     (new Extend\Frontend('forum'))
