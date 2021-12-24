@@ -6,7 +6,8 @@ import User from 'flarum/common/models/User';
 import extractText from 'flarum/common/utils/extractText';
 import Stream from 'flarum/common/utils/Stream';
 import Button from 'flarum/common/components/Button';
-import UserPage from 'flarum/forum/components/UserPage'
+import UserPage from 'flarum/forum/components/UserPage';
+import UserCard from 'flarum/forum/components/UserCard';
 
 app.initializers.add('serakoi/flarumstaffbadge', () => {
     User.prototype.staffBadge = Model.attribute('staffBadge');
@@ -17,12 +18,20 @@ app.initializers.add('serakoi/flarumstaffbadge', () => {
         if(user.staffBadge) {
             if(user.staffBadge.toLowerCase() != "true") return;
             const avatarparent_element = document.getElementsByClassName("UserCard-avatar")[0];
-            if(avatarparent_element){
-                avatarparent_element.style.position = "relative";
-                const sb_el = document.createElement("div");
-                sb_el.className = "ext_staffbadge";
-                sb_el.innerText = "Staff";
-                avatarparent_element.append(sb_el);
+            // if(avatarparent_element){
+            //     avatarparent_element.style.position = "relative";
+            //     const sb_el = document.createElement("div");
+            //     sb_el.className = "ext_staffbadge";
+            //     sb_el.innerText = "Staff";
+            //     avatarparent_element.append(sb_el);
+            // }
+            if (avatarparent_element) {
+                extend(UserPage.prototype, 'items', function (items) {
+                    items.add('staffbadge_holder', 
+                        <script id="extsrc_staffbadge">
+                            console.log('Hi, this works lol')
+                        </script>);
+                });
             }
         }
     });
