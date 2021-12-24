@@ -8,9 +8,9 @@ import Stream from 'flarum/common/utils/Stream';
 import Button from 'flarum/common/components/Button';
 
 app.initializers.add('serakoi/flarumstaffbadge', () => {
-    this.status = Stream('NaN')
-
     extend(EditUserModal.prototype, 'fields', function (items) {
+        this.status = Stream('')
+
         items.add('hasbadge',
             <div className="Form-group">
                 <label>{app.translator.trans('serakoi-flarumstaffbadge.forum.edit_user.heading')}</label>
