@@ -28,7 +28,7 @@
     ],
     "autoload": {
       "psr-4": {
-        "Askvortsov\\FlarumWarnings\\": "src/"
+        "Serakoi\\FlarumStaffBadge\\": "src/"
       }
     },
     "extra": {

@@ -8,9 +8,11 @@ import Stream from 'flarum/common/utils/Stream';
 import Button from 'flarum/common/components/Button';
 
 app.initializers.add('serakoi/flarumstaffbadge', () => {
-    extend(EditUserModal.prototype, 'fields', function (items) {
-        this.status = Stream('')
+    extend(EditUserModal.prototype, 'oninit', function () {
+        this.status = Stream('');
+    });
 
+    extend(EditUserModal.prototype, 'fields', function (items) {
         items.add('hasbadge',
             <div className="Form-group">
                 <label>{app.translator.trans('serakoi-flarumstaffbadge.forum.edit_user.heading')}</label>
@@ -18,5 +20,9 @@ app.initializers.add('serakoi/flarumstaffbadge', () => {
                     placeholder={extractText(app.translator.trans('serakoi-flarumstaffbadge.forum.edit_user.placeholder'))}
                     bidi={this.status} />
             </div>, 100)
+    });
+
+    extend(EditUserModal.prototype, 'data', function (data) {
+        data.staffBadge = this.status();
     });
 });
