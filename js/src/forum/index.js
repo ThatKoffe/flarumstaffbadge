@@ -27,7 +27,7 @@ app.initializers.add('serakoi/flarumstaffbadge', () => {
             //     avatarparent_element.append(sb_el);
             // }
             extend(UserCard.prototype, 'oncreate', function(_out, vnode) {
-                let staffBadgeText = app.forum.attribute('staffBadgeTitle');
+                let staffBadgeText = app.forum.attribute('staffBadgeTitle')?.toString();
                 if(!staffBadgeText) staffBadgeText = "Staff";
                 if(staffBadgeText == "") staffBadgeText = "Staff";
                 const userCardDom = vnode.dom;
