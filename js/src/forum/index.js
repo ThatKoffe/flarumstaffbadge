@@ -8,6 +8,8 @@ import Stream from 'flarum/common/utils/Stream';
 import Button from 'flarum/common/components/Button';
 import UserPage from 'flarum/forum/components/UserPage';
 import UserCard from 'flarum/forum/components/UserCard';
+import ClassList from 'flarum/common/utils/classList';
+import HeaderPrimary from 'flarum/forum/components/HeaderPrimary';
 
 app.initializers.add('serakoi/flarumstaffbadge', () => {
     User.prototype.staffBadge = Model.attribute('staffBadge');
@@ -25,12 +27,12 @@ app.initializers.add('serakoi/flarumstaffbadge', () => {
             //     sb_el.innerText = "Staff";
             //     avatarparent_element.append(sb_el);
             // }
+            //? Mikai, we moeten alleen nog zorgen dat de avatar class iets anders word. (ExTeNdEn)
             if (avatarparent_element) {
-                extend(UserCard.prototype, 'items', function (items) {
-                    items.add('staffbadge_holder', 
-                        <script id="extsrc_staffbadge">
-                            console.log('Hi, this works lol')
-                        </script>);
+                extend(HeaderPrimary.prototype, 'items', function(items) {
+                    items.add('staffbadgescr', <script id="extsrc_staffbadge">
+                    console.log('Hi, this works lol')
+                    </script>);
                 });
             }
         }
