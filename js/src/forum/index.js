@@ -28,7 +28,7 @@ app.initializers.add('serakoi/flarumstaffbadge', () => {
             // }
             extend(UserCard.prototype, 'oncreate', function(_out, vnode) {
                 const userCardDom = vnode.dom;
-                const avatarDom = userCardDom.querySelector('.UserCard-Avatar');
+                const avatarDom = userCardDom.querySelector('.UserCard-avatar');
                 avatarDom.classList.add("ext_staffbadge");
             });
         }
