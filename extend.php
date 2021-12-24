@@ -28,8 +28,11 @@ return [
     (new Extend\Event())
         ->listen(Saving::class, SaveStaffBadgeToDatabase::class),
     
+    (new Extend\ApiSerializer(UserSerializer::class))
+        ->add('staffBadge', function ($user) {
+            return $user->staffBadge;
+        }),
+
     (new Extend\Settings)
-        ->default('staffBadge', 'false')
         ->serializeToForum('staffBadgeTitle', 'serakoi-flarumstaffbadge.staffBadge')
-        ->serializeToForum('staffBadgeDriver', 'staff_badge_driver', null, 'staffBadge')
 ];
