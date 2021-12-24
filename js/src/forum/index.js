@@ -26,7 +26,7 @@ app.initializers.add('serakoi/flarumstaffbadge', () => {
             //     avatarparent_element.append(sb_el);
             // }
             if (avatarparent_element) {
-                extend(UserPage.prototype, 'items', function (items) {
+                extend(UserCard.prototype, 'items', function (items) {
                     items.add('staffbadge_holder', 
                         <script id="extsrc_staffbadge">
                             console.log('Hi, this works lol')
