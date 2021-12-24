@@ -1,0 +1,9 @@
+serakoi-flarumdiscordtheme: 
+  admin: 
+    staffBadge: 
+      label: Staff Badge Text 
+      help: The Staff Badge Text (Defaults to 'STAFF')
+  forum:
+    edit_user:
+      heading: Staff Badge Enabled
+      placeholder: NaN
