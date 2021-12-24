@@ -1,5 +1,6 @@
 import { extend } from 'flarum/extend';
 import app from 'flarum/app';
+import EditUserModal from 'flarum/common/components/EditUserModal';
 
 extend(EditUserModal.prototype, 'fields', function (items) {
     items.add('hasbadge',
