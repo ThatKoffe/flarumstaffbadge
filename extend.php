@@ -13,6 +13,8 @@ namespace Serakoi\FlarumStaffBadge;
 
 use Flarum\Extend;
 use Flarum\Api\Serializer\ForumSerializer;
+use Flarum\Api\Serializer\UserSerializer;
+use Flarum\User\User;
 use Flarum\Api\Event\Serializing;
 use Flarum\User\Event\Saving;
 
