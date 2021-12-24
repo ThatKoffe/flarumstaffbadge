@@ -9,10 +9,9 @@ import Button from 'flarum/common/components/Button';
 
 app.initializers.add('serakoi/flarumstaffbadge', () => {
     User.prototype.staffBadge = Model.attribute('staffBadge');
-    console.log(this.attrs.user.staffBadge())
 
     extend(EditUserModal.prototype, 'oninit', function () {
-        this.status = Stream(this.attrs.user.staffBadge());
+        this.status = Stream(this.user.staffBadge() || '');
     });
 
     extend(EditUserModal.prototype, 'fields', function (items) {
