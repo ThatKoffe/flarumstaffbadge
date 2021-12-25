@@ -19,17 +19,13 @@ app.initializers.add('serakoi/flarumstaffbadge', () => {
         const user = this.user.data.attributes;
         if(user.staffBadge) {
             if(user.staffBadge.toLowerCase() != "true") return;
-            // if(avatarparent_element){
-            //     avatarparent_element.style.position = "relative";
-            //     const sb_el = document.createElement("div");
-            //     sb_el.className = "ext_staffbadge";
-            //     sb_el.innerText = "Staff";
-            //     avatarparent_element.append(sb_el);
-            // }
             extend(UserCard.prototype, 'oncreate', function(_out, vnode) {
                 let staffBadgeText = app.forum.attribute('staffBadgeTitle')?.toString();
+                let staffBadgeColor = app.forum.attribute('staffBadgeColor')?.toString();
                 if(!staffBadgeText) staffBadgeText = "STAFF";
                 if(staffBadgeText == "") staffBadgeText = "STAFF";
+                if(!staffBadgeColor) staffBadgeColor = "rgb(70, 209, 96)";
+                if(staffBadgeColor == "") staffBadgeColor = "rgb(70, 209, 96)";
                 const userCardDom = vnode.dom;
                 const avatarDom = userCardDom.querySelector('.UserCard-avatar');
                 const avatarStaffElement = document.createElement("div");
