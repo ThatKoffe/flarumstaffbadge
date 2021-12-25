@@ -10,11 +10,18 @@ app.initializers.add('serakoi/flarumstaffbadge', () => {
         help: app.translator.trans('serakoi-flarumstaffbadge.admin.staffBadge.help'),
       })    
       .registerSetting({
-        setting: 'serakoi-flarumstaffbadge.staffBadgeHex',
-        name: 'staffBadgeHex',
+        setting: 'serakoi-flarumstaffbadge.staffBadgeTextColor',
+        name: 'staffBadgeTextColor',
         type: 'text',
-        label: app.translator.trans('serakoi-flarumstaffbadge.admin.staffBadgeHex.label'),
-        help: app.translator.trans('serakoi-flarumstaffbadge.admin.staffBadgeHex.help'),
+        label: app.translator.trans('serakoi-flarumstaffbadge.admin.staffBadgeTextColor.label'),
+        help: app.translator.trans('serakoi-flarumstaffbadge.admin.staffBadgeTextColor.help'),
+      })
+      .registerSetting({
+        setting: 'serakoi-flarumstaffbadge.staffBadgeTextBg',
+        name: 'staffBadgeTextBg',
+        type: 'text',
+        label: app.translator.trans('serakoi-flarumstaffbadge.admin.staffBadgeTextBg.label'),
+        help: app.translator.trans('serakoi-flarumstaffbadge.admin.staffBadgeTextBg.help'),
       });
 });
 

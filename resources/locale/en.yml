@@ -3,8 +3,11 @@ serakoi-flarumstaffbadge:
     staffBadge: 
       label: Staff Badge Text 
       help: The Staff Badge Text (Defaults to 'STAFF')
-    staffBadgeHex:
+    staffBadgeTextColor:
       label: Staff Badge Color
+      help: Badge Color (Defaults to '#fff')
+    staffBadgeTextBg:
+      label: Staff Badge Background Color
       help: Badge Color (Defaults to 'rgb(70, 209, 96)')
   forum:
     edit_user:

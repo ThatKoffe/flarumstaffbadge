@@ -15,22 +15,25 @@ app.initializers.add('serakoi/flarumstaffbadge', () => {
     User.prototype.staffBadge = Model.attribute('staffBadge');
 
     extend(UserPage.prototype, 'show', function (page_user) {
-        console.log(this);
         const user = this.user.data.attributes;
         if(user.staffBadge) {
             if(user.staffBadge.toLowerCase() != "true") return;
             extend(UserCard.prototype, 'oncreate', function(_out, vnode) {
                 let staffBadgeText = app.forum.attribute('staffBadgeTitle')?.toString();
                 let staffBadgeColor = app.forum.attribute('staffBadgeColor')?.toString();
+                let staffBadgeBg = app.forum.attribute('staffBadgeBg')?.toString();
                 if(!staffBadgeText) staffBadgeText = "STAFF";
                 if(staffBadgeText == "") staffBadgeText = "STAFF";
-                if(!staffBadgeColor) staffBadgeColor = "rgb(70, 209, 96)";
-                if(staffBadgeColor == "") staffBadgeColor = "rgb(70, 209, 96)";
+                if(!staffBadgeBg) staffBadgeBg = "rgb(70, 209, 96)";
+                if(staffBadgeBg == "") staffBadgeBg = "rgb(70, 209, 96)";
+                if(!staffBadgeColor) staffBadgeColor = "#fff";
+                if(staffBadgeColor == "") staffBadgeColor = "#fff";
                 const userCardDom = vnode.dom;
                 const avatarDom = userCardDom.querySelector('.UserCard-avatar');
                 const avatarStaffElement = document.createElement("div");
                 avatarStaffElement.classList.add("ext_staffbadge");
                 avatarStaffElement.style.color = staffBadgeColor;
+                avatarStaffElement.style.backgroundColor = staffBadgeBg;
                 avatarStaffElement.innerText = staffBadgeText;
                 avatarDom.append(avatarStaffElement);
             });

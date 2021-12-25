@@ -37,5 +37,6 @@ return [
 
     (new Extend\Settings)
         ->serializeToForum('staffBadgeTitle', 'serakoi-flarumstaffbadge.staffBadge')
-        ->serializeToForum('staffBadgeColor', 'serakoi-flarumstaffbadge.staffBadgeHex')
+        ->serializeToForum('staffBadgeColor', 'serakoi-flarumstaffbadge.staffBadgeTextColor')
+        ->serializeToForum('staffBadgeBg', 'serakoi-flarumstaffbadge.staffBadgeTextBg')
 ];
