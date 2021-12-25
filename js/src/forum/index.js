@@ -30,6 +30,7 @@ app.initializers.add('serakoi/flarumstaffbadge', () => {
                 const avatarDom = userCardDom.querySelector('.UserCard-avatar');
                 const avatarStaffElement = document.createElement("div");
                 avatarStaffElement.classList.add("ext_staffbadge");
+                avatarStaffElement.style.color = staffBadgeColor;
                 avatarStaffElement.innerText = staffBadgeText;
                 avatarDom.append(avatarStaffElement);
             });
