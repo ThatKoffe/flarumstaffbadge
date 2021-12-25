@@ -30,12 +30,10 @@ app.initializers.add('serakoi/flarumstaffbadge', () => {
                 let staffBadgeText = app.forum.attribute('staffBadgeTitle')?.toString();
                 if(!staffBadgeText) staffBadgeText = "STAFF";
                 if(staffBadgeText == "") staffBadgeText = "STAFF";
-                console.log(staffBadgeText);
                 const userCardDom = vnode.dom;
                 const avatarDom = userCardDom.querySelector('.UserCard-avatar');
-                avatarDom.classList.add("ext_staffbadge");
                 const avatarStaffElement = document.createElement("div");
-                avatarStaffElement.class = "ext_staffbadge";
+                avatarStaffElement.classList.add("ext_staffbadge");
                 avatarStaffElement.innerText = staffBadgeText;
                 avatarDom.append(avatarStaffElement);
             });
