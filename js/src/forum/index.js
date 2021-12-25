@@ -34,7 +34,7 @@ app.initializers.add('serakoi/flarumstaffbadge', () => {
                 const userCardDom = vnode.dom;
                 const avatarDom = userCardDom.querySelector('.UserCard-avatar');
                 avatarDom.classList.add("ext_staffbadge");
-                avatarDom.style.content = staffBadgeText;
+                avatarDom.querySelector("::after").style.content = staffBadgeText;
             });
         }
     });
