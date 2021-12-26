@@ -14,11 +14,11 @@ import HeaderPrimary from 'flarum/forum/components/HeaderPrimary';
 app.initializers.add('serakoi/flarumstaffbadge', () => {
     User.prototype.staffBadge = Model.attribute('staffBadge');
 
-    extend(UserPage.prototype, 'show', function (page_user) {
-        const user = this.user.data.attributes;
-        if(user.staffBadge) {
-            if(user.staffBadge.toLowerCase() != "true") return;
-            extend(UserCard.prototype, 'oncreate', function(_out, vnode) {
+
+    extend(UserCard.prototype, 'oncreate', function(_out, vnode) {
+        const card_user = this.attrs.user.data.attributes;
+        if(card_user.staffBadge){
+            if(card_user.staffBadge.toLowerCase() === "true"){
                 let staffBadgeText = app.forum.attribute('staffBadgeTitle')?.toString();
                 let staffBadgeColor = app.forum.attribute('staffBadgeColor')?.toString();
                 let staffBadgeBg = app.forum.attribute('staffBadgeBg')?.toString();
@@ -36,7 +36,7 @@ app.initializers.add('serakoi/flarumstaffbadge', () => {
                 avatarStaffElement.style.backgroundColor = staffBadgeBg;
                 avatarStaffElement.innerText = staffBadgeText;
                 avatarDom.append(avatarStaffElement);
-            });
+            }
         }
     });
 
