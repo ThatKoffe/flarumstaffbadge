@@ -22,17 +22,18 @@ class SaveStaffBadgeToDatabase {
         $user = $event->user;
         $data = $event->data;
         $actor = $event->actor;
-        $actor->assertAdmin();
         $attributes = Arr::get($data, 'attributes', []);
 
         if (isset($attributes['staffBadge'])) {
-
+            $actor->assertAdmin();
             $staffbadge = $attributes['staffBadge'];
 
             //? Set staff badge to true or false
-            $user->staffbadge = $staffbadge;
-        } else {
-            $user->staffbadge = false;
+            if($staffbadge === "true"){
+                $user->staffbadge = "true";
+            } else {
+                $user->staffbadge = "false";
+            }
         }
     }
 }
