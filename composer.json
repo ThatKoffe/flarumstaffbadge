@@ -2,44 +2,44 @@
     "name": "serakoi/flarumstaffbadge",
     "description": "Display a user staff badge on profiles!",
     "keywords": [
-      "flarum"
+        "flarum"
     ],
     "type": "flarum-extension",
     "license": "MIT",
     "support": {
-      "issues": "https://github.com/askvortsov1/flarum-moderator-warnings/issues",
-      "source": "https://github.com/askvortsov1/flarum-moderator-warnings",
-      "forum": "https://discuss.flarum.org/d/23228-moderator-warnings-extension"
+        "issues": "https://github.com/serakoi/flarumstaffbadge/issues",
+        "source": "https://github.com/serakoi/flarumstaffbadge",
+        "forum": "https://discuss.flarum.org/d/29736"
     },
     "require": {
-      "flarum/core": "^1.0.0"
+        "flarum/core": "^1.0.0"
     },
     "authors": [
-      {
-        "name": "Serakoi",
-        "email": "admin@seer-software.com",
-        "role": "Developer"
-      },
-      {
-        "name": "Prodev",
-        "email": "admin@seer-software.com",
-        "role": "Developer"
-      }
+        {
+            "name": "Serakoi",
+            "email": "admin@seer-software.com",
+            "role": "Developer"
+        },
+        {
+            "name": "Prodev",
+            "email": "admin@seer-software.com",
+            "role": "Developer"
+        }
     ],
     "autoload": {
-      "psr-4": {
-        "Serakoi\\FlarumStaffBadge\\": "src/"
-      }
+        "psr-4": {
+            "Serakoi\\FlarumStaffBadge\\": "src/"
+        }
     },
     "extra": {
-      "flarum-extension": {
-        "title": "Staff Badge",
-        "category": "feature",
-        "icon": {
-          "name": "fas fa-address-card",
-          "backgroundColor": "#0045ff",
-          "color": "#fff"
+        "flarum-extension": {
+            "title": "Staff Badge",
+            "category": "feature",
+            "icon": {
+                "name": "fas fa-address-card",
+                "backgroundColor": "#0045ff",
+                "color": "#fff"
+            }
         }
-      }
     }
 }
