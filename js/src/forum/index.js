@@ -7,7 +7,7 @@ import extractText from 'flarum/common/utils/extractText';
 import Stream from 'flarum/common/utils/Stream';
 import UserCard from 'flarum/forum/components/UserCard';
 import PostUser from 'flarum/forum/components/PostUser';
-import Link from 'flarum/common/components/Link';
+import TagList from './components/tagList';
 
 
 // From: https://github.com/clarkwinkelmann/flarum-ext-circle-groups/blob/f5c17aa696ef906f05e8b0fbe6d369f20e56ecb3/js/src/forum/index.js#L8
@@ -20,11 +20,9 @@ app.initializers.add('serakoi/flarumstaffbadge', () => {
     User.prototype.tagList = Model.attribute('tagList');
 
     extend(PostUser.prototype, 'oncreate', function (_out,vnode) {
-        console.log('Post Created')
         const user = this.attrs.post.user();
 
         if(!user) return;
-        console.log(user)
         const data = user.data.attributes;
         const badge = data.staffBadge;
         if(!badge) return;
@@ -85,8 +83,7 @@ app.initializers.add('serakoi/flarumstaffbadge', () => {
 
         let tags = user.attribute('tagList').split(',');
         if(tags.length === 0) return;
-        items.add('tagList', 
-        <div>{tags.length}</div>)
+        items.add('tagList',<TagList user={user}/>)
     });
 
     extend(EditUserModal.prototype, 'oninit', function () {
