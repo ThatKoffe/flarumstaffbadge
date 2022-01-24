@@ -89,8 +89,8 @@ app.initializers.add('serakoi/flarumstaffbadge', () => {
     });
 
     extend(EditUserModal.prototype, 'oninit', function () {
-        this.status = Stream(this.attrs.user.staffBadge() || '');
-        this.tagList = Stream(this.attrs.user.tagList() || '');
+        this.status = Stream(this.attrs.user?.staffBadge() || '');
+        this.tagList = Stream(this.attrs.user?.tagList() || '');
     });
 
     extend(EditUserModal.prototype, 'fields', function (items) {
