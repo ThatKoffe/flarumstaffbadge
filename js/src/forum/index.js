@@ -78,8 +78,19 @@ app.initializers.add('serakoi/flarumstaffbadge', () => {
         }
     });
 
+    extend(UserCard.prototype, 'infoItems', function(items){
+        let user = this.attrs.user;
+        if(!user.attribute('tagList')) return;
+
+        let tags = user.attribute('tagList').split(',');
+        if(tags.length === 0) return;
+        items.add('tagList', 
+        <div>{tags.length}</div>)
+    });
+
     extend(EditUserModal.prototype, 'oninit', function () {
         this.status = Stream(this.attrs.user.staffBadge() || '');
+        this.tagList = Stream(this.attrs.user.tagList() || '');
     });
 
     extend(EditUserModal.prototype, 'fields', function (items) {
@@ -90,9 +101,17 @@ app.initializers.add('serakoi/flarumstaffbadge', () => {
                     placeholder={extractText(app.translator.trans('serakoi-flarumstaffbadge.forum.edit_user.placeholder'))}
                     bidi={this.status} />
             </div>, 100)
+        items.add('tagList',
+            <div className="Form-group">
+                <label>{app.translator.trans('serakoi-flarumstaffbadge.forum.edit_user.tagList.heading')}</label>
+                <input className="FormControl"
+                    placeholder={extractText(app.translator.trans('serakoi-flarumstaffbadge.forum.edit_user.tagList.placeholder'))}
+                    bidi={this.tagList} />
+            </div>, 100)
     });
 
     extend(EditUserModal.prototype, 'data', function (data) {
         data.staffBadge = this.status();
+        data.tagList = this.tagList();
     });
 });
