@@ -17,6 +17,7 @@ function matchTag(tag) {
 
 app.initializers.add('serakoi/flarumstaffbadge', () => {
     User.prototype.staffBadge = Model.attribute('staffBadge');
+    User.prototype.tagList = Model.attribute('tagList');
 
     extend(PostUser.prototype, 'oncreate', function (_out,vnode) {
         console.log('Post Created')
