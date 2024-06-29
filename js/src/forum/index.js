@@ -92,20 +92,24 @@ app.initializers.add('serakoi/flarumstaffbadge', () => {
     });
 
     extend(EditUserModal.prototype, 'fields', function (items) {
-        items.add('hasbadge',
-            <div className="Form-group">
-                <label>{app.translator.trans('serakoi-flarumstaffbadge.forum.edit_user.heading')}</label>
-                <input className="FormControl"
-                    placeholder={extractText(app.translator.trans('serakoi-flarumstaffbadge.forum.edit_user.placeholder'))}
-                    bidi={this.status} />
-            </div>, 100)
-        items.add('tagList',
-            <div className="Form-group">
-                <label>{app.translator.trans('serakoi-flarumstaffbadge.forum.edit_user.tagList.heading')}</label>
-                <input className="FormControl"
-                    placeholder={extractText(app.translator.trans('serakoi-flarumstaffbadge.forum.edit_user.tagList.placeholder'))}
-                    bidi={this.tagList} />
-            </div>, 100)
+        if (app.session.user.attribute('canEditStaffBadge')) {
+            items.add('hasbadge',
+                <div className="Form-group">
+                    <label>{app.translator.trans('serakoi-flarumstaffbadge.forum.edit_user.heading')}</label>
+                    <input className="FormControl"
+                        placeholder={extractText(app.translator.trans('serakoi-flarumstaffbadge.forum.edit_user.placeholder'))}
+                        bidi={this.status} />
+                </div>, 100)
+        }
+        if (app.session.user.attribute('canEditTagList')) {
+            items.add('tagList',
+                <div className="Form-group">
+                    <label>{app.translator.trans('serakoi-flarumstaffbadge.forum.edit_user.tagList.heading')}</label>
+                    <input className="FormControl"
+                        placeholder={extractText(app.translator.trans('serakoi-flarumstaffbadge.forum.edit_user.tagList.placeholder'))}
+                        bidi={this.tagList} />
+                </div>, 100)
+        }
     });
 
     extend(EditUserModal.prototype, 'data', function (data) {

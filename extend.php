@@ -36,6 +36,12 @@ return [
         })
         ->attribute('tagList', function ($serializer, $user) {
             return $user->tagList;
+        })
+        ->attribute('canEditStaffBadge', function ($serializer, $user) {
+            return $serializer->getActor()->hasPermission('serakoi-flarumstaffbadge.canEditStaffBadge');
+        })
+        ->attribute('canEditTagList', function ($serializer, $user) {
+            return $serializer->getActor()->hasPermission('serakoi-flarumstaffbadge.canEditTagList', $user);
         }),
 
     (new Extend\Settings)
