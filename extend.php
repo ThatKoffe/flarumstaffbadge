@@ -38,10 +38,10 @@ return [
             return $user->tagList;
         })
         ->attribute('canEditStaffBadge', function ($serializer, $user) {
-            return $serializer->getActor()->hasPermission('serakoi-flarumstaffbadge.canEditStaffBadge');
+            return $serializer->getActor()->can('serakoi-flarumstaffbadge.canEditStaffBadge', $user);
         })
         ->attribute('canEditTagList', function ($serializer, $user) {
-            return $serializer->getActor()->hasPermission('serakoi-flarumstaffbadge.canEditTagList', $user);
+            return $serializer->getActor()->can('serakoi-flarumstaffbadge.canEditTagList', $user);
         }),
 
     (new Extend\Settings)
