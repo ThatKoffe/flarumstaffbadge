@@ -24,8 +24,7 @@ class SaveStaffBadgeToDatabase {
         $actor = $event->actor;
         $attributes = Arr::get($data, 'attributes', []);
 
-        if (isset($attributes['staffBadge'])) {
-            $actor->assertAdmin();
+        if (isset($attributes['staffBadge']) && $actor->can('serakoi-flarumstaffbadge.canEditStaffBadge', $user)) {
             $staffbadge = $attributes['staffBadge'];
 
             //? Set staff badge to true or false
@@ -35,8 +34,7 @@ class SaveStaffBadgeToDatabase {
                 $user->staffbadge = "false";
             }
         }
-        if (isset($attributes['tagList'])) {
-            $actor->assertAdmin();
+        if (isset($attributes['tagList']) && $actor->can('serakoi-flarumstaffbadge.canEditTagList', $user)) {
             $tagList = $attributes['tagList'];
 
             //? Set tagList for user, seperated by coma
